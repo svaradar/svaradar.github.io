@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Building Software Applications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Power to Build and use beautiful Software">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Building Software Applications">
+<meta property="og:url" content="http://power2build.github.io/page/24/index.html">
+<meta property="og:site_name" content="Building Software Applications">
+<meta property="og:description" content="Power to Build and use beautiful Software">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="svaradar">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Building Software Applications" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Building Software Applications</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://power2build.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2011-03-11-sqlplus-spooling-in-html-format" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/11/2011-03-11-sqlplus-spooling-in-html-format/" class="article-date">
+  <time datetime="2011-03-12T03:41:00.000Z" itemprop="datePublished">2011-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Databases/">Databases</a>►<a class="article-category-link" href="/categories/Databases/Scripts/">Scripts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/11/2011-03-11-sqlplus-spooling-in-html-format/">SQLPLUS - Spooling in HTML format</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I used this recently and I thought of sharing this. If you don’t know this already, SQL*PLUS has built in support for HTML. All you have to do is add markup option either on command line or inside the script. By the nature of it, it is only useful when you are spooling the output. Useful when you are dumping from multiple tables or generating simple reports. Just be aware that the output file will be larger than the usual text file spool.</p>
+<p>Just add below to the script before spooling and the</p>
+<blockquote>SET MARKUP HTML ON SPOOL ON PREFORMAT OFF ENTMAP ON -
+HEAD &quot;&lt;TITLE&gt;E-App Validation Report&lt;/TITLE&gt; -
+&lt;STYLE type='text/css'&gt; -
+&lt;!-- BODY {background: #FFFFFF} --&gt; -
+&lt;/STYLE&gt;&quot; -
+BODY &quot;TEXT='#000FF'&quot; -
+TABLE &quot;WIDTH='90%' BORDER='5'&quot;
+
+<p>spool cleanup_eapp_data.html</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2011/03/11/2011-03-11-sqlplus-spooling-in-html-format/" data-id="ckecshb5m000o1slb4wezblo2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2011-03-11-sqlplus-spool-name-with-embedded-timestamp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/11/2011-03-11-sqlplus-spool-name-with-embedded-timestamp/" class="article-date">
+  <time datetime="2011-03-12T03:39:00.000Z" itemprop="datePublished">2011-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Databases/">Databases</a>►<a class="article-category-link" href="/categories/Databases/Oracle/">Oracle</a>►<a class="article-category-link" href="/categories/Databases/Oracle/Scripts/">Scripts</a>►<a class="article-category-link" href="/categories/Databases/Oracle/Scripts/SQL-Plus/">SQL*Plus</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/11/2011-03-11-sqlplus-spool-name-with-embedded-timestamp/">SQLPlus - spool name with embedded timestamp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>To be able to create a spool file, with filename embedded with timestamp:</p>
+<p>[sourcecode language=”SQL”]<br>col sysdt new_value sysdt_var<br>SELECT TO_CHAR(SYSDATE, ‘yyyymmdd_hh24miss’) sysdt FROM DUAL;<br>DEFINE LOGFILE=run_filename_&amp;&amp;sysdt_var..log<br>spool &amp;&amp;LOGFILE<br>[/sourcecode]</p>
+<p>Update 05/30/2017 - The above definitely works - I use this in all my scripts now. Just noticed that this post was referred to in <a href="https://community.oracle.com/thread/2536252" target="_blank" rel="noopener noreferrer">Oracle community</a> post as not working. Apparently, I did correct this post since then, but I noticed that they mentioned that the script didn’t work, because the OP probably had SET DEFINE OFF. After reading that post, decided to add few more clarifications here.</p>
+<p>It is critical that you have</p>
+<blockquote>SET DEFINE ON</blockquote>
+at the top. This is the default in SQL*Plus, but in some tools (for e.g., SQLTools, this is provided as a button and is typically OFF by default). Also, you might have to explicitly turn it off sometimes, so when you reach this script, it may be off. When you turn it on, it is set to ampersand character ("&amp;").
+
+<p><strong>Substitution Variables</strong></p>
+<p>The ampersand is what tells SQL*Plus to interpret ampersand (&amp; and &amp;&amp;), typically used for interactive prompt to get a value from the user into a variable. These are called substitution variables, because they are literally substituted at runtime.</p>
+<blockquote>SQL&gt; SELECT '&amp;1' FROM DUAL;
+Enter value for 1: test
+old 1: select '&amp;1' from dual
+new 1: select 'test' from dual
+
+<h2 id="‘TES"><a href="#‘TES" class="headerlink" title="‘TES"></a>‘TES</h2><p>test</blockquote><br>See that old and new? That’s where &amp;1 is getting substituted. Oh yeah, if you don’t want to see the substitution (old and new) statements, you can turn that off, using</p>
+<blockquote>SET VERIFY OFF</blockquote>
+&nbsp;
+
+<p><strong>COL and NEW_VALUE</strong></p>
+<p>Another important thing to remember is the user of Col and new_value helps to make it auto-populate the populate from the database. Here is a <a href="http://www.orafaq.com/node/515" target="_blank" rel="noopener noreferrer">nice post </a>on this on Orafaq site I love and follow. I typically see the column and the matching database column are named identical often times. I named them different (sysdt and sysdt_var) to distinguish them. I deliberately named the second entity after NEW_VALUE as sysdt_var, since this is the DEFINE Variable created after you do a SELECT a value to an alias sysdt!!</p>
+<p>Following an example on the orafaq post, here is how the variable is defined:</p>
+<blockquote>&nbsp;
+
+<p>SQL&gt; COL sysdt new_value sysdt_var<br>SQL&gt;<br>SQL&gt;<br>SQL&gt; DEFINE sysdt_var<br>SP2-0135: symbol sysdt_var is UNDEFINED<br>SQL&gt;<br>SQL&gt; SELECT TO_CHAR(SYSDATE, ‘yyyymmdd_hh24miss’) sysdt FROM DUAL;</p>
+<h2 id="SYSDT"><a href="#SYSDT" class="headerlink" title="SYSDT"></a>SYSDT</h2><p>20170530_111202</p>
+<p>SQL&gt; DEFINE sysdt_var<br>DEFINE SYSDT_VAR = “20170530_111202” (CHAR)<br>SQL&gt; DEFINE sysdt<br>SP2-0135: symbol sysdt is UNDEFINED<br>SQL&gt;</blockquote><br>There you have it - the second entity after NEW_VALUE directive is the DEFINEd variable available to SQL<em>Plus commands. It’s confusing, but when in doubt, try it out like above. Note, SQL</em>Plus is not case sensitive, but I make my keywords upper case</p>
+<p>Apparently, you can use NEW_VALUE or OLD_VALUE, but I prefer the NEW_VALUE for our purpose. These 2 directives came into SQL*Plus to use it as a report writer!</p>
+<p><strong>Concat?</strong></p>
+<p>Yet another important fact I left out earlier is the reason for 2 dots in my LOGFILE name definition. It is because, Dot (“.”) itself is a concat operator in SQL<em>Plus. Note that this operator is applicable to only SQL</em>Plus, but <em>not</em> Oracle SQL. There you use “||” (or use the Concat function) for concatenation. Lots of symbols, lot of confusion, make sure you get them right!</p>
+<p>Oh yeah, I almost forgot. You do want to turn off the DEFINE <a href="https://stackoverflow.com/questions/118190/how-do-i-ignore-ampersands-in-a-sql-script-running-from-sql-plus" target="_blank" rel="noopener noreferrer">sometimes</a>. What if your data contains ampersand (&amp;) in it, like Johnson &amp; Johnson!! So if you are doing,</p>
+<p>[sourcecode language=”SQL”]<br>SELECT customer_id, customer_name, effective_date<br>FROM customer<br>WHERE customer_name = ‘JOHNSON &amp; JOHNSON’;<br>[/sourcecode]</p>
+<p>Here you will definitely have to turn off DEFINE. In a large script, you may end up turning it ON and OFF as needed.</p>
+<p>And yes, if you absolutely have to, you can change the DEFINE character to something else:</p>
+<p>SET DEFINE “^”</p>
+<p>But everytime you turn it OFF and ON, it goes back to default (“&amp;”).</p>
+<p>&nbsp;</p>
+<p><strong>Prior Updates</strong></p>
+<p>Updated 10/03/2014 - the SQL had some special chars, so when I copied it to my script, it failed. Corrected that above. I have also changed it store the spool file name in a DEFINED variable and use it throughout the script.</p>
+<p>Also, where it has .log, it actually needs .. (two dots).</p>
+<p><strong>Update 12/07/12</strong></p>
+<p>This was confusing, as I had the same name for column name and the SQL variable created by new_value. I’ve renamed the two accordingly. This works.</p>
+<p>Also, I posted about <a title="Quick Tip – Oracle SQL*Plus: HTML output" target="_blank" rel="noopener" href="http://power2build.wordpress.com/2012/09/16/quicktip-oracle-sqlplus-html-output/">spooling to HTML</a> some time back. You can combine the two, of course:</p>
+<p>[sourcecode language=”SQL”]<br>col spoolname new_value spoolname_var<br>SELECT ‘tablist_’||to_char(sysdate, ‘yymmdd_hh24miss’) || ‘.html’ spoolname<br>FROM dual;</p>
+<p>SET MARKUP HTML ON SPOOL ON -<br>HEAD&quot;&lt;TITLE&gt; Session Stats&lt;/TITLE&gt; -<br>&lt;STYLE type=’text/css’&gt; -<br>&lt;!– BODY {background: #FFFFFF} –&gt; -<br>&lt;/STYLE&gt;&quot; -<br>BODY &quot;TEXT=’#000FF’&quot; -<br>TABLE &quot;WIDTH=’90%’ BORDER=’5’&quot;</p>
+<p>spool &amp;&amp;spoolname_var</p>
+<p>SELECT username, logon_time, status FROM v$session;<br>spool OFF;<br>[/sourcecode]</p>
+<p>creates a nice HTML file with a list of all users currently logged on to the database. This is saved in a HTML file with timestamp in it’s name!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2011/03/11/2011-03-11-sqlplus-spool-name-with-embedded-timestamp/" data-id="ckecshb5d000m1slbg0ti1cdg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2011-03-10-tomcat-sybase-ea-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/10/2011-03-10-tomcat-sybase-ea-server/" class="article-date">
+  <time datetime="2011-03-11T03:21:00.000Z" itemprop="datePublished">2011-03-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Misc/">Misc</a>►<a class="article-category-link" href="/categories/Misc/Powerbuilder/">Powerbuilder</a>►<a class="article-category-link" href="/categories/Misc/Powerbuilder/web-building/">web building</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/10/2011-03-10-tomcat-sybase-ea-server/">Sybase EAServer - Taking Control - TomCat + EA Server</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Today another coworker of mine was trying to get XAMPP setup work with our EA Server. (We have PB application and Java objects deployed to this EA Server). He has a complete setup of XAMPP with Apache and Tomcat. He has a JSP page that uses the PB objects. This got to a point and crashed with “class not found” error. Clearly pointing to a classpath issue. But which one?</p>
+<p>He mentioned that he had to set the EA Server first before he started XAMPP. Clearly there are some conflicts in the classes shared between the 2. EA Server is normally started using a batch file that reads the env classpath (windows settings in control panel) and adds its own classpaths locally. (SET LOCAL inside batch file). So whatever EA Server set is not visible to XAMPP but not the other way around. That’s why he had to start EA Server first.</p>
+<p>We then looked for the specific class that was “not found”. This happened to a stub for the PB objects. In Jaguar manager (aka Sybase Central, EA Server admin) there is an option to generate stubs (and skeletons if needed). This typically points to SYBASEEASERVERHTMLCLASSES directory. We found out that he also similar classes in SYBASEEASERVERJAVACLASSES directory. We knew these were not used, as they were not in the class path. Then we searched for classes or jar files with similar names. We stumbled on a jar file that contains part of these stubs, inside XAMPP. (He uses OpenBD for coldfusion applications, which is why he has XAMPP in the first place). This jar was old and had part of the stubs classes and did not have the one we were having trouble with.</p>
+<p>Apparently Tomcat was automatically loading this jar (Anything inside the lib directory gets loaded automatically). We found that when we tried to rename the file.</p>
+<p>Now that we found out the classes in trouble, we thought we could just add the class paths needed to the environment classpath and hope Tomcat would pick it up. This did not happen. On the web, I saw a note about how Tomcat handles classpaths differently than regular Java. There was a suggestion to the classpath to the batch file that starts Tomcat. We didn’t try that yet.</p>
+<p>For now, we decided to copy the classes to the library folder, so Tomcat can automatically load the classes. So, we shut down XAMPP, regenerated the jar file (in EA Server stub generation, there is an option to generate a jar instead of class files) and copied to XAMPP lib folder and everything worked OK.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2011/03/10/2011-03-10-tomcat-sybase-ea-server/" data-id="ckecshb59000k1slb05rg20y4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2011-03-09-linux-wget-yum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/03/09/2011-03-09-linux-wget-yum/" class="article-date">
+  <time datetime="2011-03-10T03:52:00.000Z" itemprop="datePublished">2011-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nix/">*nix</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/03/09/2011-03-09-linux-wget-yum/">Linux - Wget, Yum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>One of my co-workers was trying to install Oracle linux update to Fedora linux box. She was trying to do a wget command based on some web site instructions. Her wget failed and was not able to get the repository file at <a target="_blank" rel="noopener" href="http://public-yum.oracle.com">public-yum.oracle.com</a>.</p>
+<pre><code><a target="_blank" rel="noopener" href="http://linux.about.com/od/commands/l/blcmdl1_wget.htm">wget </a><a target="_blank" rel="noopener" href="http://public-yum.oracle.com/public-yum-ol6.repo">http://public-yum.oracle.com/public-yum-ol6.repo</a></code></pre>
+<p>Per suggestions on the web, we tried using host or nslookup for the website. They could not find the web site.</p>
+<p>Where as, google site was always found. <strong>host</strong> <a target="_blank" rel="noopener" href="http://google.com">google.com</a> and <strong>nslookup</strong> <a target="_blank" rel="noopener" href="http://google.com">google.com</a> worked fine. But not to the oracle server. Not even <a target="_blank" rel="noopener" href="http://oracle.com">oracle.com</a> showed up when we tried host, nslookup and ping commands.</p>
+<p>After googling it up and trying to find solutions, we got to a point, where it pointed to some kind of network issue, probably proxy? I asked her to download the above file manually (she was always able to go to the web page directly in browser) and save to /etc/yum.repos.d directory. Then we tried,</p>
+<p><strong>yum list </strong>command.</p>
+<p>This gave a different error:</p>
+<p><strong>IOError: &lt;urlopen error (-2, ‘Name or service not known’)&gt;</strong></p>
+<p>&nbsp;</p>
+<p>Some more web searches (<a target="_blank" rel="noopener" href="http://serverfault.com/questions/76421/wget-cant-resolve-host">http://serverfault.com/questions/76421/wget-cant-resolve-host</a>) revealed this to be related to DNS. That was kind of strange. As we were able to ping and nslookup to <a target="_blank" rel="noopener" href="http://google.com">google.com</a> and we were always able to go to the oracle site in browser.</p>
+<p>Anyways, we decided to edit the<strong> /etc/resolve.conf</strong> file and add some public name servers to it.</p>
+<p><strong>nameserver &lt;dns ip address&gt;</strong></p>
+<strong>
+</strong>
+This didn't help. Then she logged into a unix box and we looked at the /etc/resolve.conf there. It had only one name server. We copied to the file on Linux box. Bingo!! It worked. So, the problem was that the name servers she had listed in the resolve file didn't resolve oracle servers for some reason.
+
+<p>&nbsp;</p>
+<p><strong>Yum, Wget etc<br></strong><br>I really didn’t know much about Yum and Wget until today. While working on this problem, learned a few things:</p>
+<p>Wget is a cool utility to download files. Per the <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Wget">wikipedia page </a>, wget (formerly geturl) is a non-interactive replacement for FTP, but it also works with other protocols like HTTP, HTTPS etc. It can download recursively.</p>
+<p>Yum is a package manager/installer for Linux. See here for a definition:</p>
+<p><a target="_blank" rel="noopener" href="http://www.wisegeek.com/what-is-yum.htm">http://www.wisegeek.com/what-is-yum.htm</a></p>
+<p>Turns out the .repo file we were having problem with in the first place, is the repository that has some configurations to be used by Yum to download more files and install them.</p>
+<p><strong>Note: </strong>If you are editing any of the /etc/ files and you already have the console window open, chances the new settings will not be effective. Close all the console windows and start a new one.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2011/03/09/2011-03-09-linux-wget-yum/" data-id="ckecshb57000i1slbg3pw3zc0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2011-02-14-ubuntu-i" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/02/14/2011-02-14-ubuntu-i/" class="article-date">
+  <time datetime="2011-02-14T11:02:00.000Z" itemprop="datePublished">2011-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nix/">*nix</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/14/2011-02-14-ubuntu-i/">ubuntu &amp; I</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve a long experience with the Unix world. When I first picked up Linux, it was all command line (I think it was Redhat). I kept hearing about it and I noticed that it’s commands overlapped with Unix shells in many ways. I told myself, yeah I know Linux. This was more than 10 years ago.</p>
+<p>Since then I’ve had chances to work on Linux command line versions several times when I worked on some web projects in PHP/MYSQL. Still the same impression. It’s like Unix.</p>
+<p>Few years ago, I was at Fry’s. They had a PC for $125+. This was when a decent windows PC cost like $500 - $1000. I was thrilled. Picked up one and took it home. It had some flavor of Linux on it. To my surprise, it had a windowing version of Linux. I was thrilled. I took out my windows PC (I believe Win2K or XP) and plugged in the new PC. I connected to Ethernet, mouse, keyboard, speaker, monitor and even the printer. To my surprise Internet connected right away. So did the monitor, keyboard, mouse. After some fiddling I was able to get sound working also. I’ve worked with windows and experienced the typical windows problems like driver issues, software issues, hardware incompatibility issues before. Different versions of windows didn’t work with the same hardware. Here I got a totally strange Operating System (Actually it was strange because the flavor of Linux I had was from Taiwan and it printed a lot of Chinese characters - that added to my surprise as well) and it worked like a charm. I was impressed. But, I didn’t keep the PC for long, as there some other devices that failed with it.</p>
+<p>Till recently It’s been touch and go with Linux. Recently, my windows PC crashed. I must admit, I installed EASUS partitioning software and some registry compacter and these screwed up a lot of paths in the registry. I tried to restore from Restore points, alas it wouldn’t. I tried to create one, it failed. I had to actually reinstall windows from the backup that comes with HP PC. This was frustrating experience. My PC had been slower and slower, which is what drove to touch the partition and registry in the first place. Now that I reinstalled windows, I was hoping my PC was going to perform better. To my disappointment, it really didn’t.</p>
+<p>My father was visiting me and in his spare he decided to build a PC. I had different old PC’s hanging around. He got one working by replacing the motherboard with Intel Atom based board. It has a memory restriction of 1GB. We got an old Windows XP drive installed and was actually run Windows. (Not quite easily though - Windows seems to build configuration of the PC where it was first installed, so when I tried to use XP in a different PC, it failed to boot). I didn’t remember the windows password. After looking around, we found a Linux based password extraction program!!! The entire operating system on a CD and we didn’t even have to install it. It ran right out of the CD.</p>
+<p>This is when we decided to give Ubuntu a shot. I eventually installed Ubuntu. The windowing interface it had, blew me away. I loved it. And as usual, the PC with Linux worked with all the devices right out of the box. Actually the Windows on the Atom PC did have problem with Audio and to my surprise, Audio worked with Ubuntu.</p>
+<p>Then I dusted off an old 10GB drive and installed Ubuntu on it. Now, this is my main PC. Ever since, I am hooked to Ubuntu. Everyday I keep discovering new software to install and still have some more space to do other things. So far, this older PC with less memory and hard disk space than my 2-year old Windows Vista PC, the run for the money. Now, I don’t use my Windows PC directly. When I want to I remote desktop from my Ubuntu PC.</p>
+<p>I have plans to upgrade my Ubuntu PC. (I don’t have the intention to get rid of Windows PC yet, as there are several software on it that I still use). But, with Wine installed, I am discovering new sides of Linux. I will write more about my experience with Linux here.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2011/02/14/2011-02-14-ubuntu-i/" data-id="ckecshb55000h1slb6avagpwr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2010-11-23-pb-backup-using-pb-orca-to-export-pbls" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/11/23/2010-11-23-pb-backup-using-pb-orca-to-export-pbls/" class="article-date">
+  <time datetime="2010-11-23T13:07:00.000Z" itemprop="datePublished">2010-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Batch-File/">Batch File</a>►<a class="article-category-link" href="/categories/Batch-File/DOS/">DOS</a>►<a class="article-category-link" href="/categories/Batch-File/DOS/ORCA/">ORCA</a>►<a class="article-category-link" href="/categories/Batch-File/DOS/ORCA/Powerbuilder/">Powerbuilder</a>►<a class="article-category-link" href="/categories/Batch-File/DOS/ORCA/Powerbuilder/Scripts/">Scripts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/11/23/2010-11-23-pb-backup-using-pb-orca-to-export-pbls/">Script - PB backup – Using PB ORCA to export PBLs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A basic Operating system level unit in Powerbuilder is a library file (.PBL). Each PBL file is a self contained directory in itself, with the objects stored inside in a proprietary binary format. You need Powerbuilder to view and work with this directory structure (System tree, Library painter etc).</p>
+<p>Sometimes, it would be nice to be able to work with individual objects as text files at the OS level. This will enable us to use any text utilities to work with the objects as files (like you would a Java or C++ file). For e.g., I have a Perl script to grep through the exported text files. With text files, you can store away these source files in any version control systems (PVCS, SVN etc) easily. And you can easily diff 2 versions of an object by using any text diff tool (Of course, there are tools available to do these from inside PB, but it’s just lot easier to work text files). PB allows the source code to be exported to text files with extensions, *.sr? (.srw for windows, .srd for datawindows etc.).</p>
+<p>PB <a title="PBOrca" href="http://manuals.sybase.com/onlinebooks/group-pb/adt0650e/orca/@Generic__BookTextView/86" target="_blank">ORCA</a> is an API that Powersoft developed early on for 3rd Party CASE tool vendors to work with PB objects. With PB ORCA, you can write programs to work PB libraries and objects from OS command line. Several object level operations available in PB IDE are also available in this API. Incidentally, there is a command line utility available with the same name (pborca.exe) on <a title="PBORCA" href="http://code.google.com/p/pborca/" target="_blank">Google Code</a>. The tool has several commands that correspond to API functions. You can create a ORCA script file (with .orc extension) and run it in batch mode using the tool. See <a title="pborca commands" href="http://pborca.googlecode.com/svn/trunk/install/deploy/pborca.htm" target="_blank">here </a>for a complete list of commands supported by the tool.</p>
+<p>Below script uses pborca.exe in a DOS batch file to export all the objects in all the PBLs in a project directory to a corresponding directory structure. The batch file first loops on a list of .pbl files in a directory (passed in), and creates an ORCA script (latax.orc) with export commands. Then it runs the generated ORCA script using pborca.exe to export the object files (.*sr?). When the script finishes, you will have directory with several sub-directories, one for each PBL file exported.</p>
+<p>This script uses several advanced features (<a target="_blank" rel="noopener" href="http://www.computerhope.com/call.htm">%~ modifiers</a>, <a title="DOS Enable Delayed Variable expansion" href="http://www.robvanderwoude.com/variableexpansionexercise2.php" target="_blank">ENABLEDELAYEDEXPANSION</a>) of DOS Batch file. DOS scripts do several things a Unix script does, but it’s almost like an after thought! More on these later.</p>
+<p>I use this script for daily backup of my development environment. Often times only a handful of files change on the developer’s PC. Once I export the PBLs to a directory, I can diff 2 different versions using a diff tool. (I use <a title="WinMerge" href="http://winmerge.org/" target="_blank">Winmerge</a>). The files can be optionally zipped up as well.</p>
+<p>Pborca.exe can also handle the reverse (known as bootstrapping). Exported PB object files are only useful for performing file level operations. To be useful in a PB application, they will have to be imported back in to a PBL file again which can then be opened inside Powerbuilder. As of version 9, PB ORCA can be used to bootstrap as well. See <a title="Sybase PB ORCA" href="http://manuals.sybase.com/onlinebooks/group-pb/adt0650e/orca/@Generic__BookTextView/86" target="_blank">here </a>for the idea.</p>
+<pre>
+REM 12,2009 Sam V
+REM script to export PBLS using pborca.exe (ORCA interface to PB)
+REM this copies all the folders from source (typically Z:) to target.
+REM then it creates an ORCA script to export each pbl to the subdirectories.
+REM Finally it runs the generated orca script in pborca
+REM @echo off
+
+echo %0 %1, %2
+@REM copy all the directories from the powerbuilder root to the export directory
+@REM if a x.PBL is already in x subdirectory, you may not need MKD1 below.
+
+@echo creating the target directory; just copy the entire path with empty sub-directories
+xcopy /t /e /I %1 %2
+
+@REM Here we start generating the orca file to be used with &lt;a href="http://pborca.googlecode.com/svn/trunk/install/deploy/pborca.htm"&gt;PBORCA&lt;/a&gt;.
+@echo session begin pborc100.dll &gt; latax.orc
+
+@echo off
+<a title="DOS Enable Delayed Variable expansion" href="http://power2build.wordpress.com/2012/11/04/quicktip-oracle-on-the-net-apex/" target="_blank">@SETLOCAL ENABLEDELAYEDEXPANSION</a>
+@FOR /f "<a title="usebackq" href="http://ss64.com/nt/for_cmd.html" target="_blank">usebackq</a> delims=" %%a IN (`dir /s /b %1*.pbl`) DO (
+@set a1=%%~dpa
+@REM echo a1=%a1%
+@call set "a1=!a1:%~1=%~2!"
+@REM MKD1
+@REM This creates a sub-directory with the same name as PBL file
+mkdir "!a1!"
+@echo export %%~fa,,,!a1! &gt;&gt; latax.orc)
+
+@echo session end &gt;&gt; latax.orc
+
+@ENDLOCAL
+
+@echo on
+@echo run the script in pborca
+pborca latax.orc
+
+REM end of script
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2010/11/23/2010-11-23-pb-backup-using-pb-orca-to-export-pbls/" data-id="ckecshb51000f1slbh8c86g9q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2010-11-11-more-about-pb-from-my-hello-world-post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/11/11/2010-11-11-more-about-pb-from-my-hello-world-post/" class="article-date">
+  <time datetime="2010-11-11T21:13:00.000Z" itemprop="datePublished">2010-11-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a>►<a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/11/11/2010-11-11-more-about-pb-from-my-hello-world-post/">More about PB from my Hello World post</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In my earlier post, I wrote a very simple program in Powerbuilder (PB) to print/show Hello World. I tried to compare with many other programming languages there. In that post, there were several concepts introduced. But, being a simple post, I ignored most of the details. We will try to analyze the details here and this way explain what it means to program in PB.</p>
+<h3>Interpreted or Compiled</h3>
+From that list of examples I had, there is one thing that stands out. PB looks a lot more like C/C++/Java, at least in commenting style. But, then we see it has the simplicity of Basic program that it's usually thought of as originating from. It also has a lot of similarities with Visual Basic (For that matter with other flavors of BASIC such Power basic as well). PB is actually the tool and it uses proprietary language called PowerScript. Like BASIC this is an interpreted language, but not interactive (In a BASIC interpreter, results were displayed as soon as you type a command (or a command block) and press ENTER.). In PB, though the  code is interpreted, it's not the original code that you typed in, but an intermediate code it generated when you compiled (generated) or ran. More on this below.
+
+<p>&nbsp;</p>
+<h3>Object Orientedness:</h3>
+PB is at the very least, an Object based language. Windows environment contains windows with several controls or widgets on each window. The various controls and windows (objects) talk to each other through events and methods (functions). Now, this itself doesn't make it object oriented, but definitely object based. In PB (as in VB) an application is made up of several objects such as Application, Windows, Buttons, Text Boxes (and Data windows - more on this later). You cannot have a program without an application and you cannot communicate with the users without windows or buttons. So essentially when we build a PB application, we are reusing these "objects" as templates to make our own objects. Thus, by the very nature PB is Object based.
+
+<p>Real Object orientation came to it in later versions. A rudimentary “user object “ was introduced as early as ver 3.0 and by Ver 5.0 Pb introduced Object-oriented concepts such as function overloading. Many of us still write object based code in PB, but there have been some movements to make it more and more object oriented. There were several frameworks developed for PBincluding PFC, which is still strong in the Client/Server world. A more sophisticated EAF was developed for PB in an enterprise n-tier world.  A lot more companies seem to be dusting off their old PB programs and try to upgrade latest versions of PB. So, as a developer you will see both object-based and object-oriented code out there. This is different from Java perspective which is Object Oriented to the core, but not unlike C++ where people continue(d) to code C style programs.</p>
+<h3>User Interface (IDE)</h3>
+When we did the hello world, we mentioned what we coded and what we saw. But, we did not mention how or where we coded it. A Java program can be coded in a simple text editor like Notepad or more sophisticated Eclipse or Netbeans. It can then compiled and executed in a DOS (or unix/linux) command line. Or like in Eclipse, all these functionality can be done in one tool. Such tools are called IDE - Integrated Development Environment. PB has been IDE from the beginning. In fact, you cannot code or compile PB outside Powerbuilder (not exactly true, particularly the compiling part). Unlike other tools, PB is a more complete IDE and allows you, as a developer, to debug and run from within itself. Also, the code that you put into PB is actually stored in files with the extension .pbl in proprietary format. More on these later.
+
+<p>[caption id=”attachment_95” align=”alignnone” width=”300” caption=”Powerbuilder Workspace”]<a target="_blank" rel="noopener" href="http://power2build.files.wordpress.com/2010/11/pbworkspace.jpg"><img class="size-medium wp-image-95" title="pbworkspace" src="http://power2build.files.wordpress.com/2010/11/pbworkspace.jpg?w=300" alt="PB Workspace" width="300" height="106" /></a>[/caption]</p>
+<h3>Types of Applications built in PB</h3>
+What is not revealed in the Hello World program is what kind of programs can be written in PB. Apart from the windows programs, PB can also be a great Client/Server tool. In fact, in corporate environments it is mostly used as a Database programming tool. It's strength lies wholly on the simplicity of database connectivity with the use of Datawindows.  With the advent of EA Server, PB can be a great n-tier development tool as well, like Java J2EE. (More on these later).
+<h3>PB portability</h3>
+As mentioned above, PB runs in an interpreted mode. When you compile a PB program,  it gets compiled into p-code, a proprietary bytecode. In this regard PB is very much like Java. Just like Java, there are options to compile into native machine code, but typically p-code is preferred. Thus, to run a PB application, you need to install a PB runtime. This is very much like a Java VM. (In fact in EA Server terminology, this is called PB VM). So, theoretically, PB application can be ported and run anywhere PB runtime was available. There were Unix versions of PB available. But, you need a specific version of PB runtime to run a program generated with a specific version of PB. Here it is different from Java, where future runtimes are guaranteed to be backward compatible and thus can run older versions of Java classes.This makes PB less portable. Also, by the windowing nature of it, it naturally fits into Microsoft   Windows. The direction Sybase is taking, seems to confirms this. PB12   is, apart from being a windows application builder, also an IDE for .Net   plaform.
+
+<p>Starting from my next post, I will go into more details about using the product.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2010/11/11/2010-11-11-more-about-pb-from-my-hello-world-post/" data-id="ckecshb4y000e1slbc0jy8m2d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2010-11-11-history-of-pb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/11/11/2010-11-11-history-of-pb/" class="article-date">
+  <time datetime="2010-11-11T20:50:00.000Z" itemprop="datePublished">2010-11-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a>►<a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/11/11/2010-11-11-history-of-pb/">History of PB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Powerbuilder grew from the modest beginnings in the early 80’s to where it is now. Those of us who have worked with it for a long time know that it’s come a long way as a product. But how many of know it’s real history (sort of like the history PC programming world itself)? It was originally conceived and produced by a company called Powersoft. Now it is owned by Sybase. We all knew that it was “bought out” by Sybase in the 90’s and what it did to the product. But how many of us know the background of it? Both Powersoft, the company, and Powerbuilder, the product had their fair share of competitions from big giants, threat of hostile takeovers. After initial days of glory, it did lie in the dumps for some time and several wrote death sentence for it. Yet, time and again it came back up again and with PB 12 seems to have gained a new life. I can write about all those here. But, I won’t try to re-invent the wheel as there have been several nice posts about the subject. I am listing a few, that I liked, here:</p>
+<p><a class="alignleft" title="An article by Chris Pollach" href="http://pbdj.sys-con.com/node/124571?page=0,2" target="_blank">An Article by Chris Pollach</a></p>
+<p>&nbsp;</p>
+<p><a title="History of Powerbuilder from the maker of PBLPeeper" href="http://www.techno-kitten.com/Changes_to_PowerBuilder/changes_to_powerbuilder.html" target="_blank">History of Powerbuilder from the maker of PBLPeeper</a></p>
+<p><a title="A nice blog about Powerbuilder and other tools" href="//howtosolvethat.blogspot.com/2010/07/history-of-powerbuilder.html" target="_blank">A nice blog about Powerbuilder and other tools</a></p>
+<p><a title="The displaced guy or your personal IT guy on the web!" href="//www.displacedguy.com/?p=65" target="_blank">The displaced guy or your personal IT guy on the web!</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2010/11/11/2010-11-11-history-of-pb/" data-id="ckecshb4t000b1slbdihtfge9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2010-11-11-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/11/11/2010-11-11-hello-world/" class="article-date">
+  <time datetime="2010-11-11T19:47:00.000Z" itemprop="datePublished">2010-11-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a>►<a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a>►<a class="article-category-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/11/11/2010-11-11-hello-world/">Hello World!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is my real first post in Powerbuilder. (I wrote a lot about PB and my association with it before). Like it is customary for any tutorial or book on programming to start with a program to print Hello World, I will try to do the same in Powerbuilder.</p>
+<p>Before I jump into it, let’s some simple ones: (I am only including the actual lines and not full program code here,  please refer to the really interesting site that prints hello world in various languages - <a title="Hello World in various languages" href="http://www.roesler-ac.de/wolfram/hello.htm" target="_blank" rel="noopener noreferrer">here</a>)</p>
+<p>In a Pascal (and Delphi) program, you can just say,</p>
+<p>[sourcecode language=”delphi”]<br>{Hello World in Pascal}<br>writeln(&quot;Hello world&quot;);<br>[/sourcecode]</p>
+<p>In C, you can do</p>
+<p>[sourcecode language=”cpp”]<br>/<em>Hello World in C</em>/<br>puts(&quot;Hello World!&quot;);<br>[/sourcecode]</p>
+<p>In Basic Language, (which contributed to Powerbuilder’s Powerscript) you can do</p>
+<p>[sourcecode language=”vb”]<br>10 REM Hello World in BASIC<br>20 PRINT &quot;Hello World!&quot;<br>[/sourcecode]</p>
+<p>Coming to the more Object oriented world,</p>
+<p>In C++ you can write,</p>
+<p>[sourcecode language=”cpp”]<br>/<em>Hello World in C++</em>/<br>cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; endl;<br>[/sourcecode]</p>
+<p>And in Java, this would be,</p>
+<p>[sourcecode language=”java”]<br>/<em>Hello World in Java</em>/<br>System.out.println(&quot;Hello World!&quot;);<br>[/sourcecode]</p>
+<p>Well, almost of all of them print to a console - a text based screen, like in DOS, Unix, Linux.</p>
+<p>The same task of showing hello world to the user takes a bit more, when it comes to a windowing world (like MS windows, X-windows, Apple mac interface). The presentation becomes little more important. After all, in such an operating environment, everything is shown inside a window, so our program needs to write into one such too! In a windowing environment, simplest way to present a text is using some type of message box, which is a small window showing the text (and may be some question buttons).  Luckily windows API offers functions to create such a messagebox with ease. Let’s see how we could do the same in Java, for a windowing environment:</p>
+<p>[sourcecode language=”java”]<br>/<em>Hello World in Java -windowing version</em>/<br>javax.swing.JOptionPane.showMessageDialog(null,&quot;Hello world!&quot;);<br>[/sourcecode]</p>
+<p>Swing is a package available in Java to create an application for a windowing environment.</p>
+<p>Coming back to what we started with, to print Hello World in Powerbuilder, we could do something like above using a messagebox. Luckily PB offers a function for that - MessageBox. So, in the simplest form, we will do,</p>
+<p>[sourcecode language=”cpp”]<br>/<em>Hello World in Powerbuilder-Simple</em>/<br>MessageBox(&quot;Hi from Powerbuilder&quot;, &quot;Hello World!&quot;)<br>[/sourcecode]</p>
+<p>Executing the Hello function<br>We are almost done. In all of the examples above (except BASIC which was interpreted, you just type that one line and it did print it), we need to wrap this line in a program. In the C like languages, including Java, we would need a main function to invoke our “Hello” function.</p>
+<p>[sourcecode language=”java”]<br>// Hello World in Java using Swing GUI<br>class HelloWorldSwing {<br>   static public void main(String args[]) {<br>      javax.swing.JOptionPane.showMessageDialog(null,&quot;Hello world!&quot;);<br>   }<br>}<br>[/sourcecode]</p>
+<p>Main function is the entry point in various languages like C, C++, Java. This is the function that is called when the program is executed.</p>
+<p>Powerbuilder is built slightly differently. It does have an entry point function - actually an event. This will be the open event of the Application object. Just like the class with main function becomes entry point object in Java, an Application object is the entry point object in Powerbuilder and its Open event is executed first when the application is executed. So in it’s simplest form, we simply add the Messagebox function in the application open event and just run the application. When run, this is what you will see,</p>
+<p><a target="_blank" rel="noopener" href="http://power2build.files.wordpress.com/2010/11/helloworldpb.jpg"><img class="alignnone size-full wp-image-60" title="helloworldpb" src="http://power2build.files.wordpress.com/2010/11/helloworldpb.jpg" alt="" width="194" height="175" /></a></p>
+<p>Well, that’s for showing the simplest way. But a typical PB application is built not just with application object, but with one or more windows and other types of objects as well. We will see about that in a later post.</p>
+<p>Please see my <a target="_blank" rel="noopener" href="https://power2build.wordpress.com/2010/11/11/more-about-pb-from-my-hello-world-post/">next post </a>for more details on the PowerBuilder impmentation of Hello World.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2010/11/11/2010-11-11-hello-world/" data-id="ckecshb4r000a1slbbmd357ph" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2010-09-18-what-is-powerbuilder" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2010/09/18/2010-09-18-what-is-powerbuilder/" class="article-date">
+  <time datetime="2010-09-19T02:47:00.000Z" itemprop="datePublished">2010-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IDE/">IDE</a>►<a class="article-category-link" href="/categories/IDE/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a>►<a class="article-category-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a>►<a class="article-category-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/Scripting/">Scripting</a>►<a class="article-category-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/Scripting/Sybase/">Sybase</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/09/18/2010-09-18-what-is-powerbuilder/">What is Powerbuilder?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Powerbuilder is an IDE, an integrated Development Environment, a tool where a programmer do everything within it, including design and develop screens/reports, write command line programs, compile, deploy applications all from within Powerbuilder.</p>
+<p>This is in contrast to programming in languages like C or Pascal, where you use a text editor to edit, a compiler to compile and copy files to deploy.</p>
+<p>IDE’s and case tools were popular in early 90’s. There were several such tools that promised “less or no coding” and yet develop and deploy enterprise applications. Powerbuilder was one of many tools available. I remember reviewing PB, Visual Basic (VB), Gupta SQL windows and Oracle CDE (successor to SQL forms in windows). Of all these, I took to PB easily, I liked SQL windows better (I remember it was more colorful and windowy!). Oracle CDE (forms 4.0) didn’t measure up. And Visual Basic needed more programming.  I remember the days when VB and PB were constantly compared and contrasted. Each had it’s own strength but PB won in some of the corporate contracts. The datawindow, and the quick reporting capability were probably some of the secret.</p>
+<p>Contrary to popular belief, it’s not a tool for non-programmers - managers, Business Analysts and the like. Yes, several tried, but any serious screens in PB always needed programming. To this day, I hear people brushing it as a child’s play in the world of complex Java and .Net applications. But PB is used, surprisingly, in building big corporate applications, even today. And such serious development activities always involve programming. Programming in a language called Powerscript. It’s basic with a twist. Long before Java became so popular, it took some tenets of C++ and became Object oriented. (OO pundits may not agree and call it more Object based than object oriented, but that’s a topic for another post!). Oh, about PB for managers, Sybase made another tool called Info-maker, a trimmed down version of PB, which didn’t require programming (or lacking programming, depending on who looks at it).</p>
+<p>PB is definitely easier to use to build screens and rudimentary database applications. I feel, the user interface is definitely easier to use than that of VB, but then I’ve been using it for many years. The strength of Powerbuilder, as against other tools was and has been the datawindows, a compiled widget readily available to include in any windows. Strictly speaking, a datawindow is a window that may have many controls on it, but the difference is that a datawindow is managed by PB routines as against windows API. For this reason, Sybase always suggests to combine many different controls in a window into a single datawindow, wherever possible, for performance.</p>
+<p>A datawindow widget is not much unlike ADO or DAO objects in VB. The strength of the datawindow is that it’s built around SQL (what’s called a datasource - there are other data sources, more later) and by keeping the SQL in PB itself and database neutral, we could make the same datawindow work with many different databases, like Oracle, Sybase, Informix etc.</p>
+<p>PB has changed a lot over the years. People who have seen it in the 90’s will definitely realize the transformation. The IDE itself started packing more in version 7.0. Now, in version 10.x and beyond, it’s turned into a true development tool. (Rumor has it that PB 12.0 could actually be used as an IDE for .Net development!). The question still remains, in the world of Eclipse and Netbeans, Java and .net, why PB? That too enterprise edition costs a bundle when Java is all free. This blogger aims to ask some of those questions and try to find answers live on this blog.</p>
+<p>Currently I am working at the City of LA where we use Powerbuilder heavily in a clustered EA Server environment. We even have extensions on the web using JSP and Coldfusion. The software is a tax software used by thousands of businesses in and around LA. This is no child’s play. EA Server is to Powerbuilder like weblogic to Java. It’s an application container that can run PB objects and Java objects alike and it uses CORBA (how much it reminds me of Forte UDS!).</p>
+<p>From the simple client/server tool, PB has reinvented itself several times to become a n-tier platform here. Earlier PB turned out a non-visual object (NVO) that proved vital to this n-tier platform. An utterly client widget, datawindow, gave birth to (non-visual) datastores that eventually helped them to be n-tier objects as well.</p>
+<p>But then again, I feel, Sybase lost several opportunities to build it up and market it as the greatest tool on earth (I don’t mean exactly that, but at least the ads should say it, right?).  They are constantly toying with the ideas and drop them like a fly. Most recently, the EA framework, built by Cynergy Systems for Sybase, that can be used to build Enterprise applications in PB/EA Server environment has been discontinued. EA Server itself is dangling. You hear about PBNI, PB ORCA, I’ve used them too, but their future is always questionable. In the world, where every version of a software gets better with time, some of these tools inside PB appear and disappear. With PB becoming an IDE to .net, their neutrality to languages may be disappearing. And finally, with SAP buying Sybase recently, the whole existence of PB as a tool may be in jeopardy. (You think this is not possible, think what happened to Forte UDS. Sun bought this company only to kill the software, as it was a competition to Java J2EE at the time. How did they do it? They created a lousy tool called Forte for Java to erase the name Forte and eventually pulled the plug on many websites that talked about the old Forte).</p>
+<p>We will go on a journey here in  this blog, where I will not only share my experiences with the tool, but also technical articles, how-tos about PB.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://power2build.github.io/2010/09/18/2010-09-18-what-is-powerbuilder/" data-id="ckecshb4o00081slb5pp7d5g1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/23/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/25/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/">*nix</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Databases/DOS/">DOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Databases/DOS/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Databases/DOS/Oracle/Scripting/">Scripting</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Desktop/">Desktop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Desktop/desktop-interface/">desktop interface</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Desktop/desktop-interface/Gnome/">Gnome</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Desktop/desktop-interface/Gnome/gnome-desktop/">gnome desktop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Desktop/desktop-interface/Gnome/gnome-desktop/Ubuntu/">Ubuntu</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Linux/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Linux/Misc/Unix/">Unix</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Linux/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Linux/Scripting/Unix/">Unix</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Scripting/">Scripting</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Tools-amp-Utils/">Tools&amp;Utils</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Tools-amp-Utils/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/diff/">diff</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/diff/File-Managers/">File Managers</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/diff/File-Managers/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/diff/File-Managers/Misc/Nautilus/">Nautilus</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/diff/File-Managers/Misc/Nautilus/Ubuntu/">Ubuntu</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/">hardware</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/">IOCell</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/">NDAS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/Network-Storage/">Network Storage</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/Network-Storage/Operating-Systems/">Operating Systems</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/Network-Storage/Operating-Systems/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/Network-Storage/Operating-Systems/tools/Ubuntu/">Ubuntu</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/nix/hardware/IOCell/Linux/NDAS/Network-Storage/Operating-Systems/tools/Ubuntu/Ximeta/">Ximeta</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/APEX/">APEX</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/APEX/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/APEX/Oracle/quicktips/">quicktips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/APEX/Oracle/quicktips/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/APEX/Oracle/quicktips/Scripting/tools/">tools</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Applet/">Applet</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Applet/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Applet/Databases/J2EE/">J2EE</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Applet/Databases/J2EE/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Applet/Databases/J2EE/Java/JSP/">JSP</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/">AutoHotKey</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/">AutoIt</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/">Graphical user interface</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/">SciTE</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/Scripting-language/">Scripting language</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/Scripting-language/Sikuli/">Sikuli</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/Scripting-language/Sikuli/Test-Automation/">Test Automation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/Scripting-language/Sikuli/Test-Automation/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AutoHotKey/AutoIt/Graphical-user-interface/Python/SciTE/Scripting/Scripting-language/Sikuli/Test-Automation/tools/Windows-Automation/">Windows Automation</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/">Autocommit</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/COMMIT/">COMMIT</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/COMMIT/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/COMMIT/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/COMMIT/Databases/Oracle/Oracle-11g/">Oracle 11g</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Autocommit/COMMIT/Databases/Oracle/Oracle-11g/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/">Batch File</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/Commandline/">Commandline</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/Commandline/DOS/">DOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/Commandline/DOS/DOS-Windows/">DOS/Windows</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/Commandline/DOS/DOS-Windows/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/Commandline/DOS/DOS-Windows/Scripting/Windows-7/">Windows 7</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/DOS/">DOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/DOS/ORCA/">ORCA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/DOS/ORCA/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Batch-File/DOS/ORCA/Powerbuilder/Scripts/">Scripts</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Case-sensitivity/">Case sensitivity</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Case-sensitivity/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Case-sensitivity/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Case-sensitivity/Databases/Oracle/Oracle11g/">Oracle11g</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Standards/">Coding Standards</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Standards/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Standards/Java/OO/">OO</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/">Commit (data management)</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/Data-manipulation-language/">Data manipulation language</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/Data-manipulation-language/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/Data-manipulation-language/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/Data-manipulation-language/Databases/Oracle/Rollback/">Rollback</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Commit-data-management/Data-manipulation-language/Databases/Oracle/Rollback/SQL/">SQL</a></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Object-Request-Broker-Architecture/">Common Object Request Broker Architecture</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Object-Request-Broker-Architecture/CORBA/">CORBA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Object-Request-Broker-Architecture/CORBA/IDL/">IDL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Object-Request-Broker-Architecture/CORBA/IDL/Interface-description-language/">Interface description language</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Object-Request-Broker-Architecture/CORBA/IDL/Interface-description-language/Powerbuilder/">Powerbuilder</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/">Connectivity</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/Databases/Oracle/SQL-Net/">SQL*Net</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/Databases/Oracle/SQL-Net/TNS/">TNS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Connectivity/Databases/Oracle/SQL-Net/TNS/TNSPing/">TNSPing</a></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/DOS-Windows/">DOS/Windows</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/DOS-Windows/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/DOS-Windows/Misc/Networking/">Networking</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/DOS-Windows/Misc/Networking/PC/">PC</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/Misc/Windows-7/">Windows 7</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Databases/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Databases/SQL/SQLite/">SQLite</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Misc/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Misc/Oracle/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Misc/Oracle/Scripting/SQL/">SQL</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database-conversion/">Database conversion</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database-conversion/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database-conversion/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database-conversion/Databases/Oracle/Stored-procedures/">Stored procedures</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database-conversion/Databases/Oracle/Stored-procedures/Sybase/">Sybase</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/">Databases</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/">Forward Slash</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/">Oracle Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/">PL/SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/Scripting/Slash-punctuation/">Slash (punctuation)</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/Scripting/Slash-punctuation/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/Scripting/Slash-punctuation/SQL/SQL-Plus/">SQL*Plus</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/Oracle-Database/PL-SQL/Scripting/Slash-punctuation/SQL/SQL-Plus/tools/">tools</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/">PL/SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/Run-command/">Run command</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/Run-command/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/Run-command/Scripting/Slash-punctuation/">Slash (punctuation)</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/Run-command/Scripting/Slash-punctuation/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Forward-Slash/Oracle/PL-SQL/Run-command/Scripting/Slash-punctuation/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Java/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Java/Misc/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Java/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Kofax/">Kofax</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Kofax/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Kofax/Misc/ODBC/">ODBC</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Kofax/Misc/ODBC/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Kofax/Misc/ODBC/Oracle/tools/">tools</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Manga/">Manga</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Manga/Misc/">Misc</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-11g/">Oracle 11g</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-11g/PL-SQL/">PL/SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-11g/PL-SQL/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-11g/PL-SQL/Scripting/SQL/">SQL</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-Database/">Oracle Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-Database/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-Database/Scripting/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Oracle-Database/Scripting/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Misc/Oracle/Scripting/">Scripting</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-11g/">Oracle 11g</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-11g/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-11g/Scripting/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-Database/">Oracle Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-Database/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Oracle-Database/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/">PL/SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Run-command/">Run command</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Run-command/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Run-command/Scripting/Slash-punctuation/">Slash (punctuation)</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Run-command/Scripting/Slash-punctuation/SQL/">SQL</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Scripting/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/PL-SQL/Scripting/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Scripting/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Scripting/SQL/tools/">tools</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Scripts/">Scripts</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Scripts/SQL-Plus/">SQL*Plus</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/Sybase/">Sybase</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Oracle/tools/">tools</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Powerbuilder/">Powerbuilder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Databases/Scripts/">Scripts</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Design/">Design</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Design/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Design/Java/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Design/Java/Misc/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Design/Java/Misc/tools/UML/">UML</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diagramming/">Diagramming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Diagramming/Graphs/">Graphs</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Diagramming/Graphs/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Diagramming/Graphs/Misc/Scripts/">Scripts</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/">EA Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/EAServer/">EAServer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/EAServer/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/EAServer/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Introduction-to-Powerbuilder/Powerbuilder/Sybase/">Sybase</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Java/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/EA-Server/Java/Powerbuilder/Sybase-Jaugar/">Sybase Jaugar</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/IDE/">IDE</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/IDE/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/IDE/Java/Programming/">Programming</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Editor/">Editor</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Editor/Notepadd/">Notepadd++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Editor/Notepadd/tools/">tools</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Education/">Education</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Education/Misc/">Misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Education/Training/">Training</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/">Forward Slash</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/">Oracle Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/PL-SQL/">PL/SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/PL-SQL/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/PL-SQL/Powerbuilder/Slash-punctuation/">Slash (punctuation)</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/PL-SQL/Powerbuilder/Slash-punctuation/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Forward-Slash/Oracle-Database/PL-SQL/Powerbuilder/Slash-punctuation/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Google-Site/">Google Site</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Google-Site/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Google-Site/Misc/web-building/">web building</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Grep/">Grep</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Grep/Perl/">Perl</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Grep/Perl/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Grep/Perl/Powerbuilder/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Grep/Perl/Powerbuilder/Scripting/tools/">tools</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/">IDE</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/IDE/Introduction-to-Powerbuilder/Powerbuilder/Scripting/Sybase/">Sybase</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/">Introduction to Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/Misc/Powerbuilder/">Powerbuilder</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/OO/">OO</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/OO/software-development/">software-development</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/Programming/">Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Introduction-to-Powerbuilder/Powerbuilder/Sybase/">Sybase</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JMeter/">JMeter</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JMeter/Load-Tests/">Load Tests</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JMeter/Load-Tests/tools/">tools</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/JSP/">JSP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/JSP/Servlet/">Servlet</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Logging/">Logging</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Misc/">Misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Oracle/">Oracle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Parameter-Passing/">Parameter Passing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Parameter-Passing/Programming/">Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Parameter-Passing/Programming/programming-concepts/">programming concepts</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/object-oriented-programming/">object oriented programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/object-oriented-programming/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/object-oriented-programming/Powerbuilder/Programming/">Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/object-oriented-programming/Powerbuilder/Programming/software/">software</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/">Logging</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Misc/">Misc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Perl/">Perl</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Perl/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Perl/Powerbuilder/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Perl/Powerbuilder/Scripting/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Logging/Perl/Powerbuilder/Scripting/tools/Tracing/">Tracing</a></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Methodologies/">Methodologies</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Methodologies/Object-Oriented/">Object Oriented</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Methodologies/Object-Oriented/Programming/">Programming</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Link/">Link</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Oracle/Oracle-Database/">Oracle Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Oracle/Oracle-Database/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Oracle/Oracle-Database/Scripting/SQL/">SQL</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Oracle/Oracle-Database/Scripting/SQL/SQL-Plus/">SQL*Plus</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Powerbuilder/web-building/">web building</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Programming/">Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Programming/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Programming/Scripting/tools/">tools</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/Tools-amp-Utils/">Tools&amp;Utils</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/networking/">networking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/scams/">scams</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/tools/Tools-amp-Utils/">Tools&amp;Utils</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Misc/tools/Tools-amp-Utils/Windows-7/">Windows 7</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Operating-Systems/">Operating Systems</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Operating-Systems/Windows-7/">Windows 7</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/Link/">Link</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/Link/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/Link/Powerbuilder/SQL/">SQL</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/SQL/">SQL</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Perl/">Perl</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Perl/Scripting/">Scripting</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Perl/Scripting/Scripts/">Scripts</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Powerbuilder/Programming/">Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Powerbuilder/Programming/Source-Code-Control/">Source Code Control</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Powerbuilder/Sybase-Jaugar/">Sybase Jaugar</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Powerbuilder/Tracing/">Tracing</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Revision-control/">Revision control</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Revision-control/Revision-Control-System/">Revision Control System</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Revision-control/Revision-Control-System/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Revision-control/Revision-Control-System/tools/VCS/">VCS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Revision-control/Revision-Control-System/tools/VCS/Version-Control-System/">Version Control System</a></li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/christmas-cheer/">christmas cheer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/christmas-cheer/Misc/">Misc</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/comments/">comments</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/comments/JSP/">JSP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/comments/JSP/Misc/">Misc</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/comments/easerver/">easerver</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/comments/easerver/EAServer/">EAServer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/comments/easerver/EAServer/Powerbuilder/">Powerbuilder</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/comments/easerver/EAServer/Powerbuilder/xml/">xml</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/documenting-code/">documenting code</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/documenting-code/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/documenting-code/Misc/Notepad/">Notepad++</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/documenting-code/Misc/Notepad/Npp/">Npp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/documenting-code/Misc/Notepad/Npp/Word/">Word</a></li></ul></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/">easerver</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/EAServer/">EAServer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/EAServer/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/EAServer/Java/Misc/">Misc</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/EAServer/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/easerver/EAServer/Misc/Powerbuilder/">Powerbuilder</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/hardware/">hardware</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hardware/Misc/">Misc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hardware/Misc/PC-hardware/">PC hardware</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hardware/Misc/tools/">tools</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/log-analysis/">log analysis</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/log-analysis/performance/">performance</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/log-analysis/performance/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/log-analysis/performance/tools/Web/">Web</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/pbmenu/">pbmenu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">March 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">February 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/03/">March 2008</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/25/How-did-I-get-Hexo-working-1/">How did I get Hexo working?</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/25/How-did-I-get-Hexo-working/">How did I get Hexo working?</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/27/2018-07-27-tools-umlet-great-tool-for-drawing-uml-diagrams/">Tools -  UMLet - Great tool for drawing UML diagrams</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/12/2018-05-12-log4j/">Log4J</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/06/2018-05-06-java-code-search-engines/">Java Code Search Engines</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 svaradar<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
